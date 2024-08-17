@@ -1,0 +1,1 @@
+export const cryptos_endpoint = 'https://app.youhodler.com/api/v3/rates/extended';

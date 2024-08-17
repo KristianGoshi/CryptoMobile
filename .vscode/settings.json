@@ -1,0 +1,113 @@
+{
+    //terminal settings
+    "terminal.integrated.rightClickBehavior": "copyPaste",
+    "terminal.integrated.cursorBlinking": true,
+    //theme icon
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.sideBar.location": "left",
+    //bracket pair colorizer settings
+    "bracket-pair-colorizer-2.colors": [
+      "#EFF8FF",
+      "#FF6F3C",
+      "#FFC93C",
+      "#F25D9C",
+      "#6EF3D6"
+    ],
+    "bracket-pair-colorizer-2.highlightActiveScope": true,
+    "bracket-pair-colorizer-2.activeScopeCSS": [
+      "borderStyle : solid",
+      "borderWidth : 2px",
+      "borderColor : {color}",
+      "opacity: 0.5"
+    ],
+    "bracket-pair-colorizer-2.showBracketsInGutter": true,
+    "bracket-pair-colorizer-2.showBracketsInRuler": true,
+    "bracket-pair-colorizer-2.colorMode": "Consecutive",
+    "bracket-pair-colorizer-2.forceUniqueOpeningColor": true,
+    "bracket-pair-colorizer-2.scopeLineRelativePosition": true,
+    "bracket-pair-colorizer-2.scopeLineCSS": [
+      "borderStyle : solid",
+      "borderWidth : 2px",
+      "borderColor : {color}",
+      "opacity: 0.5"
+    ],
+    //editor settings
+    "editor.suggestSelection": "first",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.minimap.enabled": false,
+    // "[html]": {
+    //   "editor.defaultFormatter": "vscode.html-language-features”
+    // },
+    "editor.fontFamily": "Cascadia Code",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 16,
+    "editor.suggest.showStatusBar": true,
+    "editor.autoIndent": "full",
+    "editor.codeLens": false,
+    "editor.cursorBlinking": "solid",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.cursorStyle": "line",
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": false,
+    "editor.letterSpacing": 0.5,
+    "editor.lineHeight": 25,
+    "editor.tabCompletion": "on",
+    "editor.tabSize": 2,
+    "editor.wordWrap": "on",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "css.remoteStyleSheets": [
+      "https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    ],
+    //prettier config
+    "prettier.arrowParens": "avoid",
+    "prettier.singleQuote": true,
+    "prettier.trailingComma": "es5",
+    "prettier.printWidth": 120,
+    "prettier.bracketSpacing": true,
+    "emmet.showSuggestionsAsSnippets": true,
+    "python.insidersChannel": "weekly",
+    "git.autofetch": true,
+    "liquid.format": true,
+    //file settings
+    "files.exclude": {
+      "**/.npmrc": true,
+      "**/node_modules": true
+    },
+    "files.autoSave": "off",
+    "files.autoSaveDelay": 3000,
+    "files.hotExit": "onExit",
+    "files.defaultLanguage": "",
+    "files.trimTrailingWhitespace": true,
+    "files.associations": {
+      "*.ts": "typescript",
+      "*.liquid": "liquid"
+    },
+    "liveServer.settings.donotShowInfoMsg": true,
+    "workbench.preferredDarkColorTheme": "One Dark Pro Darker",
+    "workbench.colorTheme": "One Dark Pro Darker",
+    "oneDarkPro.editorTheme": "One Dark Pro Darker",
+    "oneDarkPro.vivid": true,
+    "oneDarkPro.bold": true,
+    "[javascript]": {
+      "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "workbench.editor.enablePreview": true,
+    "autoimport.doubleQuotes": true,
+    "better-comments.highlightPlainText": true,
+    "vsintellicode.features.python.deepLearning": "enabled",
+    "diffEditor.renderSideBySide": true,
+    "gitlens.views.branches.branches.layout": "list",
+    "terminal.integrated.fontFamily": "MesloLGS NF",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "extensions.ignoreRecommendations": true,
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.cursorStyle": "line",
+    "redhat.telemetry.enabled": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "bracket-pair-colorizer-2.depreciation-notice": false,
+    "git.confirmSync": false,
+    "workbench.localHistory.exclude": {
+      "**/.npmrc": true
+    }
+  }
+  
