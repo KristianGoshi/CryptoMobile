@@ -4,6 +4,7 @@ import { actions } from './state/actions';
 import { useAppDispatch } from './state/hooks';
 import { useFetchCryptos } from './api/actions/useFetchCryptos';
 import { useRouter } from 'expo-router';
+import { useEffect, useState } from 'react';
 
 export default function CryptosPage() {
   const dispatch = useAppDispatch();
@@ -14,11 +15,34 @@ export default function CryptosPage() {
   const { searchTerm, filteredCryptos, handleSearchChange } = useSearchCryptos({
     cryptos: cryptoRates,
   });
+  const [data, setData] = useState<FlattenedCrypto[]>(filteredCryptos);
 
   const handleRowClick = (row: { [key: string]: any }) => {
     const selectedCrypto = row as FlattenedCrypto;
     dispatch(actions.crypto.setSelectedCrypto(selectedCrypto));
     router.push('/selectedCryptoPage');
+  };
+
+  useEffect(() => {
+    setData(filteredCryptos);
+  }, [filteredCryptos])
+
+  const sortData = (type: 'name' | 'ask' | 'bid' | 'rate' | 'diff24h') => {
+    const sortedData = [...data].sort((a, b) => {
+      if (type === 'name') {
+        return a.name.localeCompare(b.name);
+      } else if (type === 'ask') {
+        return a.ask - b.ask;
+      } else if (type === 'bid') {
+        return b.bid - a.bid;
+      } else if (type === 'rate') {
+        return b.rate - a.rate;
+      } else if (type === 'diff24h') {
+        return a.diff24h - b.diff24h;
+      }
+      return 0;
+    });
+    setData(sortedData);
   };
 
   if (loading) return <View></View>;
@@ -36,14 +60,27 @@ export default function CryptosPage() {
 
   return (
     <View style={styles.container}>
-      <TextInput
-        style={styles.input}
-        placeholder="Search..."
-        onChangeText={handleSearchChange}
-        value={searchTerm}
-      />
+      <TextInput style={styles.input} placeholder="Search..." onChangeText={handleSearchChange} value={searchTerm} />
+      <Text>Sort By:</Text>
+      <View style={styles.buttonsGroup}>
+        <TouchableOpacity onPress={() => sortData('name')} style={styles.sortButton}>
+          <Text style={styles.textButton}>Name</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => sortData('rate')} style={styles.sortButton}>
+          <Text style={styles.textButton}>Rate</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => sortData('ask')} style={styles.sortButton}>
+          <Text style={styles.textButton}>Ask</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => sortData('bid')} style={styles.sortButton}>
+          <Text style={styles.textButton}>Bid</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => sortData('diff24h')} style={styles.sortButton}>
+          <Text style={styles.textButton}>24h Change</Text>
+        </TouchableOpacity>
+      </View>
       <FlatList
-        data={filteredCryptos}
+        data={data}
         renderItem={renderCryptoItem}
         contentContainerStyle={{ gap: 20 }}
         showsVerticalScrollIndicator={false}
@@ -83,12 +120,26 @@ const styles = StyleSheet.create({
   rowTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    paddingBottom: 10
+    paddingBottom: 10,
   },
   cryptoItem: {
     backgroundColor: 'white',
     padding: 20,
     borderRadius: 20,
   },
+  sortButton: {
+    backgroundColor: 'black',
+    padding: 10,
+    borderRadius: 10,
+  },
+  textButton: {
+    color: 'white'
+  },
+  buttonsGroup: {
+    flexDirection: 'row',
+    gap: 10,
+    flexWrap: 'wrap',
+    marginHorizontal: 30
+  }
 });
 
