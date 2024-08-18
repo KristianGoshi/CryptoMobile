@@ -139,7 +139,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 10,
     flexWrap: 'wrap',
-    marginHorizontal: 30
+    marginHorizontal: 30,
+    justifyContent: 'center'
   }
 });
 
