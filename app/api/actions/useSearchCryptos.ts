@@ -23,8 +23,8 @@ export const useSearchCryptos = ({ cryptos }: UseFilteredCryptosInterface) => {
     }
   }, [searchTerm, cryptos]);
 
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(event.target.value);
+  const handleSearchChange = (text: string) => {
+    setSearchTerm(text);
   };
 
   return {
